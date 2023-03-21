@@ -13,14 +13,3 @@ fn main() {
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
-
-use reqwest::Result;
-
-async fn fetch() -> Result<()> {
-    let response = reqwest::get("https://jsonplaceholder.typicode.com/todos/1")
-        .await?
-        .text()
-        .await?;
-    println!("Response: {:?}", response);
-    Ok(())
-}
