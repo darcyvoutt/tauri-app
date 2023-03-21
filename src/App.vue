@@ -7,19 +7,7 @@ import Welcome from "./components/Welcome.vue";
 </script>
 
 <template>
-  <div class="container">
-    <Welcome />
-    <Greet />
+  <div class="h-screen flex flex-col items-center justify-center">
     <Audio />
   </div>
 </template>
-
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
-}
-</style>
