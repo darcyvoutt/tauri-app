@@ -38,11 +38,16 @@
     },
     "windows": [
       {
+        "center": true,
+        "fileDropEnabled": true,
         "fullscreen": false,
         "resizable": true,
-        "title": "tauri-app",
-        "width": 800,
-        "height": 600
+        "title": "Tauri App",
+        "titleBarStyle": "Overlay",
+        "width": 1280,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 800
       }
     ]
   }
