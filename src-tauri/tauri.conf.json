@@ -16,6 +16,9 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "startDragging": true
       }
     },
     "bundle": {
@@ -41,6 +44,7 @@
         "center": true,
         "fileDropEnabled": true,
         "fullscreen": false,
+        "hiddenTitle": true,
         "resizable": true,
         "title": "Tauri App",
         "titleBarStyle": "Overlay",

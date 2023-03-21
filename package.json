@@ -7,11 +7,13 @@
     "dev": "run-p dev:*",
     "dev:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css --watch",
     "dev:vite": "vite",
-    "build": "run-p build:*",
-    "build:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css",
-    "build:vite": "vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "tauri:dev": "yarn tauri dev",
+    "package": "run-p package:*",
+    "package:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css",
+    "package:build": "yarn tauri build"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
