@@ -9,7 +9,7 @@
     "dev:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css --watch",
     "dev:vite": "vite",
     "build": "vite build",
-    "build-win": "yarn tauri build --target i686-pc-windows-msvc",
+    "build-win": "yarn tauri build",
     "preview": "vite preview",
     "tauri": "tauri",
     "tauri:dev": "yarn tauri dev",
