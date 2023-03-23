@@ -18,10 +18,7 @@ export default {
 <template>
   <audio ref="audio" :src="file"></audio>
 
-  <button
-    class="bg-teal-700 text-white font-bold py-3 px-6 rounded-lg"
-    @click="play()"
-  >
+  <button class="btn" @click="play()">
     Play Audio
   </button>
 </template>

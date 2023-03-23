@@ -7,4 +7,9 @@
   .faux-header {
     @apply h-8 fixed top-0 inset-x-0 z-50 select-none;
   }
+
+  /* Buttons */
+  .btn {
+    @apply bg-teal-700 text-white font-bold py-3 px-6 rounded-lg;
+  }
 }
