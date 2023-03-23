@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  /* Theme Generic */
+  .scheme {
+    @apply dark:bg-zinc-900 dark:text-neutral-200;
+  }
+
+  .scheme input,
+  .scheme textarea,
+  .scheme select {
+    @apply dark:text-zinc-900;
+  }
+
   /* Faux Header */
   .faux-header {
     @apply h-8 fixed top-0 inset-x-0 z-50 select-none;
@@ -10,6 +21,15 @@
 
   /* Buttons */
   .btn {
-    @apply bg-teal-700 text-white font-bold py-3 px-6 rounded-lg;
+    @apply bg-teal-700 text-white font-bold py-4 px-6 rounded-lg;
+  }
+
+  /* Borders */
+  .borders {
+    @apply border-neutral-200 dark:border-neutral-600;
+  }
+
+  .border-dividers {
+    @apply divide-neutral-200 dark:divide-neutral-600;
   }
 }

@@ -18,11 +18,14 @@ export default {
 </script>
 
 <template>
-  <div class="pt-2">
+  <div class="flex items-center space-x-6">
     <form>
-      <input type="text" v-model="input" class="py-2.5 px-4 border-2 border-neutral-300 rounded-md" />
+      <label for="Storage" class="mr-2">
+        Storage:
+      </label>
+      <input id="Storage" type="text" v-model="input" class="py-2.5 px-4 border-2 border-neutral-300 rounded-md" />
     </form>
 
-    <p>Storage: {{ storage }}</p>
+    <pre class="border borders p-3.5 px-8 rounded-md">{{ storage }}</pre>
   </div>
 </template>

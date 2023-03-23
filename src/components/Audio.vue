@@ -16,9 +16,11 @@ export default {
 </script>
 
 <template>
-  <audio ref="audio" :src="file"></audio>
+  <div>
+    <audio ref="audio" :src="file"></audio>
 
-  <button class="btn" @click="play()">
-    Play Audio
-  </button>
+    <button class="btn" @click="play()">
+      Play Audio
+    </button>
+  </div>
 </template>
