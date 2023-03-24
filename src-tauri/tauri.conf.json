@@ -16,13 +16,14 @@
       "http": {
         "all": true,
         "request": true,
-        "scope": ["https://api.publicapis.org/entries"]
+        "scope": ["https://api.publicapis.org/*"]
       },
       "shell": {
         "all": false,
         "open": true
       },
       "window": {
+        "create": false,
         "startDragging": true
       }
     },
