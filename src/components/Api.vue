@@ -1,26 +1,30 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { fetch } from '@tauri-apps/api/http';
+import { fetch } from '@tauri-apps/api/http'
 
-const response = ref("No response");
+const apiUrl = 'https://api.publicapis.org/entries'
+
+const data = ref('No response')
 
 async function apiCall() {
-  return await fetch('https://api.publicapis.org/entries', {
+  const response = await fetch(apiUrl, {
     method: 'GET',
     timeout: 30,
   });
+  data = response
 }
 
-onMounted(() => { apiCall() })
+onMounted(() => {
+  apiCall()
+})
 </script>
 
 <template>
-  <div class="flex items-center space-x-6">
-    <button class="btn my-4" @click="fetch()">Fetch Data</button>
+  <div class="grid grid-cols-8 items-center space-x-4">
+    <button class="btn col-span-2" @click="apiCall()">Fetch Data</button>
 
-    <div class="w-1/2 px-6 py-4 bg-neutral-200 text-neutral-900 rounded-md">
-      {{ response }}
-    </div>
-
+    <pre class="col-span-6 border borders p-3.5 px-8 rounded-md">{{
+      data
+    }}</pre>
   </div>
 </template>

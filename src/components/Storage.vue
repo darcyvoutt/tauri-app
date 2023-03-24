@@ -21,7 +21,7 @@ export default {
   <div class="flex items-center space-x-6">
     <form>
       <label for="Storage" class="mr-2">
-        Storage:
+        LocalStorage:
       </label>
       <input id="Storage" type="text" v-model="input" class="py-2.5 px-4 border-2 border-neutral-300 rounded-md" />
     </form>

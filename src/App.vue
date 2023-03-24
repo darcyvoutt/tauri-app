@@ -10,7 +10,7 @@ import Storage from "./components/Storage.vue";
   <header data-tauri-drag-region class="faux-header"></header>
 
   <main class="h-screen flex flex-col items-center justify-center">
-    <div class="w-8/12 border borders divide-y border-dividers rounded-md shadow-md">
+    <div class="max-w-3xl w-8/12 border borders divide-y border-dividers rounded-md shadow-md">
       <Audio class="p-4" />
       <Storage class="p-4" />
       <Api class="p-4" />
