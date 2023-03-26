@@ -1,17 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { fetch } from '@tauri-apps/api/http'
-
-const apiUrl = 'https://api.publicapis.org/entries'
+import { invoke } from "@tauri-apps/api/tauri";
 
 const data = ref('No response')
 
 async function apiCall() {
-  const response = await fetch(apiUrl, {
-    method: 'GET',
-    timeout: 30,
+  data.value = await invoke("post_request", {
+    data: {
+      username: "Darcy",
+      age: 37,
+      is_active: true
+    }
   });
-  data = response
 }
 
 onMounted(() => {
