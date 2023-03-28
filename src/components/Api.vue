@@ -20,10 +20,10 @@ async function apiCall() {
 </script>
 
 <template>
-  <div class="grid grid-cols-8 items-center space-x-4">
-    <button class="btn col-span-2" @click="apiCall()">Fetch Data</button>
+  <div class="flex items-center space-x-4">
+    <button class="btn" @click="apiCall()">Fetch Data</button>
 
-    <pre class="col-span-6 border borders p-3.5 px-8 rounded-md">{{
+    <pre class="pre flex-grow">{{
       data
     }}</pre>
   </div>

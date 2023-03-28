@@ -4,28 +4,36 @@ export default {
     return {
       input: null,
       storage: null,
-    }
+    };
   },
   watch: {
     input(input) {
-      localStorage.setItem("test", input)
-    }
+      localStorage.setItem("storage", input)
+      this.storage = input
+    },
   },
   mounted() {
-    this.storage = localStorage.getItem("test")
+    const storage = localStorage.getItem("storage")
+    this.storage = storage
+    this.input = storage
   },
 }
 </script>
 
 <template>
-  <div class="flex items-center space-x-6">
-    <form>
-      <label for="Storage" class="mr-2">
+  <div class="grid grid-cols-6 space-x-4">
+    <form class="flex items-center space-x-4 col-span-4" @submit.prevent>
+      <label for="Storage" class="font-bold">
         LocalStorage:
       </label>
-      <input id="Storage" type="text" v-model="input" class="py-2.5 px-4 border-2 border-neutral-300 rounded-md" />
+      <input
+        id="Storage"
+        type="text"
+        v-model="input"
+        class="input flex-grow"
+      />
     </form>
 
-    <pre class="border borders p-3.5 px-8 rounded-md">{{ storage }}</pre>
+    <pre class="pre col-span-2">{{ storage }}</pre>
   </div>
 </template>

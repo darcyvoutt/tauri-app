@@ -22,10 +22,11 @@ export default {
 </script>
 
 <template>
-  <div class="flex items-center space-x-6">
+  <div class="flex items-center space-x-4">
     <button class="btn" @click="play()">
       Play Audio
     </button>
+
     <input type="range" min="0" max="1" step="0.1" v-model="volume">
     <span>{{ currentVolume }}</span>
 

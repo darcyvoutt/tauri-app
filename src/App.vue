@@ -3,20 +3,8 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Api from "./components/Api.vue";
 import Audio from "./components/Audio.vue";
+import Machine from "./components/Machine.vue";
 import Storage from "./components/Storage.vue";
-
-import { ref, onMounted } from "vue";
-import { invoke } from "@tauri-apps/api/tauri";
-
-const uuid = ref("");
-
-async function machine() {
-  uuid.value = await invoke("machine_id");
-}
-
-onMounted(() => {
-  machine()
-})
 </script>
 
 <template>
@@ -27,10 +15,7 @@ onMounted(() => {
       <Audio class="p-4" />
       <Storage class="p-4" />
       <Api class="p-4" />
-      <div class="p-4">
-        <span class="font-bold">Machine ID: </span>
-        <span>{{ uuid }}</span>
-      </div>
+      <Machine class="p-4" />
     </div>
   </main>
 </template>
