@@ -1,22 +1,22 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { invoke } from "@tauri-apps/api/tauri";
+import { ref } from 'vue'
+import axios from 'axios'
+import axiosTauriAdapter from 'axios-tauri-adapter'
 
-const data = ref('No response')
+const client = axios.create({ adapter: axiosTauriAdapter })
+const headers = { "Content-Type": "application/json" }
+const data = ref('No data')
 
 async function apiCall() {
-  data.value = await invoke("post_request", {
-    data: {
-      username: "Darcy",
-      age: 37,
-      is_active: true
-    }
-  });
+  const response = await client.post('https://m32m1.mocklab.io/json',
+    {
+      id: 12345,
+      name: "James"
+    },
+    headers
+  )
+  data.value = response.data
 }
-
-onMounted(() => {
-  apiCall()
-})
 </script>
 
 <template>
