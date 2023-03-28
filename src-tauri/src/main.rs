@@ -7,9 +7,17 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
+use machine_uid;
+
+#[tauri::command]
+fn machine_id() -> String {
+    let id: String = machine_uid::get().unwrap();
+    format!("{}", id.to_lowercase())
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, machine_id])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

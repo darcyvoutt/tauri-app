@@ -4,6 +4,19 @@
 import Api from "./components/Api.vue";
 import Audio from "./components/Audio.vue";
 import Storage from "./components/Storage.vue";
+
+import { ref, onMounted } from "vue";
+import { invoke } from "@tauri-apps/api/tauri";
+
+const uuid = ref("");
+
+async function machine() {
+  uuid.value = await invoke("machine_id");
+}
+
+onMounted(() => {
+  machine()
+})
 </script>
 
 <template>
@@ -14,6 +27,10 @@ import Storage from "./components/Storage.vue";
       <Audio class="p-4" />
       <Storage class="p-4" />
       <Api class="p-4" />
+      <div class="p-4">
+        <span class="font-bold">Machine ID: </span>
+        <span>{{ uuid }}</span>
+      </div>
     </div>
   </main>
 </template>
