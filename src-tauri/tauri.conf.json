@@ -54,8 +54,8 @@
         "resizable": true,
         "title": "Tauri App",
         "titleBarStyle": "Overlay",
-        "width": 1920,
-        "height": 1080,
+        "width": 1280,
+        "height": 800,
         "minWidth": 900,
         "minHeight": 800
       }
