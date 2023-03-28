@@ -22,18 +22,21 @@ export default {
 
 <template>
   <div class="grid grid-cols-6 space-x-4">
-    <form class="flex items-center space-x-4 col-span-4" @submit.prevent>
-      <label for="Storage" class="font-bold">
+    <form
+      class="flex items-center space-x-4 col-span-3"
+      @submit.prevent
+    >
+      <label for="Storage" class="font-bold flex-shrink-0">
         LocalStorage:
       </label>
       <input
         id="Storage"
         type="text"
         v-model="input"
-        class="input flex-grow"
+        class="input flex-shrink min-w-0"
       />
     </form>
 
-    <pre class="pre col-span-2">{{ storage }}</pre>
+    <pre class="pre col-span-3">{{ storage }}</pre>
   </div>
 </template>
