@@ -21,7 +21,7 @@
 
   /* Buttons */
   .btn {
-    @apply bg-teal-700 text-white font-bold py-4 px-6 rounded-lg;
+    @apply bg-teal-700 text-white font-bold py-3.5 px-6 rounded-lg;
   }
 
   /* Borders */

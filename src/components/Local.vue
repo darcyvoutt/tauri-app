@@ -1,4 +1,6 @@
 <script>
+import { writeText } from '@tauri-apps/api/clipboard';
+
 export default {
   data() {
     return {
@@ -16,6 +18,12 @@ export default {
     const storage = localStorage.getItem("storage")
     this.storage = storage
     this.input = storage
+  },
+  methods: {
+    async copy() {
+      await writeText(this.storage)
+      alert('Local storage copied to clipboard')
+    },
   },
 }
 </script>
@@ -37,6 +45,11 @@ export default {
       />
     </form>
 
-    <pre class="pre col-span-3">{{ storage }}</pre>
+    <div class="col-span-3 flex items-center space-x-4">
+      <pre class="pre flex-grow">{{ storage }}</pre>
+      <button class="btn" @click="copy()">
+        Copy
+      </button>
+    </div>
   </div>
 </template>

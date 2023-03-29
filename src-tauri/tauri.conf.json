@@ -19,10 +19,18 @@
       "clipboard": {
         "writeText": true
       },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": true,
+        "open": false,
+        "save": false
+      },
       "http": {
         "all": true,
         "request": true,
-        "scope": ["https://api.publicapis.org/*", "https://m32m1.mocklab.io/*"]
+        "scope": ["https://m32m1.mocklab.io/*"]
       },
       "notification": {
         "all": true
