@@ -13,9 +13,10 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="flex items-center gap-x-4">
     <button @click="notification" class="btn">
       Send Notification
     </button>
+    <p class="italic">Only working when Alert type of checked for MacOS</p>
   </div>
 </template>
