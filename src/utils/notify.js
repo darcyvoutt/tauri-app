@@ -2,20 +2,15 @@ import { isPermissionGranted, requestPermission, sendNotification } from '@tauri
 import { getName } from '@tauri-apps/api/app';
 
 export async function notify(body) {
+  if (!await isPermissionGranted()) {
+    const permissionResult = await requestPermission();
+
+    if (permissionResult !== 'granted') {
+      return;
+    }
+  }
+
   const appName = await getName();
-  let permissionGranted = await isPermissionGranted();
 
-  if (!permissionGranted) {
-    const permission = await requestPermission();
-    permissionGranted = permission === 'granted';
-  }
-
-  console.log('permissionGranted', permissionGranted)
-
-  if (permissionGranted) {
-    sendNotification({
-      title: appName,
-      body: body,
-    });
-  }
+  sendNotification({ body: body, title: appName });
 }
