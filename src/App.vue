@@ -3,8 +3,9 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Api from "./components/Api.vue";
 import Audio from "./components/Audio.vue";
+import Local from "./components/Local.vue";
 import Machine from "./components/Machine.vue";
-import Storage from "./components/Storage.vue";
+import Store from "./components/Store.vue";
 </script>
 
 <template>
@@ -13,9 +14,10 @@ import Storage from "./components/Storage.vue";
   <main class="h-screen flex flex-col items-center justify-center">
     <div class="max-w-3xl w-8/12 border borders divide-y border-dividers rounded-md shadow-md">
       <Audio class="p-4" />
-      <Storage class="p-4" />
+      <Local class="p-4" />
       <Api class="p-4" />
       <Machine class="p-4" />
+      <Store class="p-4" />
     </div>
   </main>
 </template>

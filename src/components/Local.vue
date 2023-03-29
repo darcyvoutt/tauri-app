@@ -30,7 +30,7 @@ export default {
         LocalStorage:
       </label>
       <input
-        id="Storage"
+        id="LocalStorage"
         type="text"
         v-model="input"
         class="input flex-shrink min-w-0"
