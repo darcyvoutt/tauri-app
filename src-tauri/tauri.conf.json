@@ -7,16 +7,25 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "Tauri App",
+    "productName": "Tauri App Starter",
     "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
       "all": false,
+      "app": {
+        "all": true
+      },
+      "clipboard": {
+        "writeText": true
+      },
       "http": {
         "all": true,
         "request": true,
         "scope": ["https://api.publicapis.org/*", "https://m32m1.mocklab.io/*"]
+      },
+      "notification": {
+        "all": true
       },
       "shell": {
         "all": false,

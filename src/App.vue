@@ -5,7 +5,7 @@ import Api from "./components/Api.vue";
 import Audio from "./components/Audio.vue";
 import Local from "./components/Local.vue";
 import Machine from "./components/Machine.vue";
-import Store from "./components/Store.vue";
+import Notification from "./components/Notification.vue";
 </script>
 
 <template>
@@ -17,7 +17,8 @@ import Store from "./components/Store.vue";
       <Local class="p-4" />
       <Api class="p-4" />
       <Machine class="p-4" />
-      <Store class="p-4" />
+      <Notification class="p-4" />
     </div>
   </main>
+
 </template>
