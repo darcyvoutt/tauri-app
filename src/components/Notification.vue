@@ -17,6 +17,6 @@ export default {
     <button @click="notification" class="btn">
       Send Notification
     </button>
-    <p class="italic">Only working when Alert type of checked for MacOS</p>
+    <p class="italic">Only working when Alert type for MacOS</p>
   </div>
 </template>
