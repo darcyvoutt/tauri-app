@@ -22,10 +22,10 @@ fn hash_string() -> String {
     let secret = std::env::var("SECRET").expect("$SECRET is not set");
     let secret_str: &str = &secret[..];
     let key = machine + "|" + customer + "|" + timestamp + "|" + secret_str;
-    let mut hasher = Sha256::new();
-    hasher.update(key);
-    let hash = hasher.finalize();
-    format!("{:x}", hash)
+    let mut hash = Sha256::new();
+    hash.update(key);
+    let hashed = hash.finalize();
+    format!("{:x}", hashed)
 }
 
 fn main() {
