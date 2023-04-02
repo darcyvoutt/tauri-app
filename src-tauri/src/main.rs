@@ -11,22 +11,26 @@ fn machine_id() -> String {
 }
 
 // Hash Key validation
-use dotenv::dotenv;
 use sha2::{Digest, Sha256};
 
 #[tauri::command]
 fn hash_string() -> String {
     let machine: String = String::from(machine_id());
-    let customer = "6831453175974";
-    let timestamp = "2022-03-21T18:26:55.395Z";
-    let secret = std::env::var("SECRET").expect("$SECRET is not set");
-    let secret_str: &str = &secret[..];
-    let key = machine + "|" + customer + "|" + timestamp + "|" + secret_str;
+    let customer: &str = "6831453175974";
+    let timestamp: &str = "2022-03-21T18:26:55.395Z";
+    // let secret: String = std::env::var("SECRET").expect("$SECRET is not set");
+    // let secret_str: &str = &secret[..];
+    // + "|" + secret_str
+    // println!("{}", secret_str);
+
+    let key: String = machine + "|" + customer + "|" + timestamp;
     let mut hash = Sha256::new();
     hash.update(key);
     let hashed = hash.finalize();
     format!("{:x}", hashed)
 }
+
+use dotenv::dotenv;
 
 fn main() {
     dotenv().ok();
