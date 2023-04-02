@@ -1,5 +1,5 @@
 <script>
-import { initData } from '../utils/data'
+import { initDataCheck, getData, saveData } from '../utils/data'
 
 export default {
   data() {
@@ -8,8 +8,20 @@ export default {
       dataFile: 'No data found.',
     }
   },
+  watch: {
+    input() {
+      this.updateData()
+    },
+  },
   mounted() {
-    initData()
+    initDataCheck()
+  },
+  methods: {
+    async updateData() {
+      const data = await getData()
+      const updatedData = Object.assign(data, { input: this.input })
+      await saveData(updatedData)
+    },
   },
 }
 </script>

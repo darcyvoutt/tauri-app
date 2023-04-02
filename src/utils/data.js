@@ -3,7 +3,7 @@ import {
   createDir,
   readDir,
   readTextFile,
-  writeFile,
+  writeTextFile,
 } from '@tauri-apps/api/fs'
 
 // Local Variables
@@ -16,7 +16,7 @@ const filePath = `${dataDir}/${dataFile}`
 const _createDataFile = async () => {
   try {
     await createDir(dataDir, { dir: baseDir, recursive: true })
-    await writeFile({ contents: '{}', path: filePath }, { dir: baseDir })
+    await writeTextFile({ contents: '{}', path: filePath }, { dir: baseDir })
   } catch (e) {
     console.error(e)
   }
@@ -33,7 +33,7 @@ const _findDataFile = async () => {
 }
 
 // Export Functions
-export const initData = async () => {
+export const initDataCheck = async () => {
   const hasDataFolder = await _findDataFile()
   if (!hasDataFolder) await _createDataFile()
 }
@@ -48,5 +48,8 @@ export const getData = async () => {
 }
 
 export const saveData = async (data) => {
-  await writeFile({ contents: data, path: filePath }, { dir: baseDir })
+  await writeTextFile(
+    { contents: JSON.stringify(data), path: filePath },
+    { dir: baseDir }
+  )
 }
