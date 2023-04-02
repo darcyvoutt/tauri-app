@@ -1,21 +1,21 @@
 <script>
-import { writeText } from '@tauri-apps/api/clipboard';
+import { writeText } from '@tauri-apps/api/clipboard'
 
 export default {
   data() {
     return {
       input: null,
       storage: null,
-    };
+    }
   },
   watch: {
     input(input) {
-      localStorage.setItem("storage", input)
+      localStorage.setItem('storage', input)
       this.storage = input
     },
   },
   mounted() {
-    const storage = localStorage.getItem("storage")
+    const storage = localStorage.getItem('storage')
     this.storage = storage
     this.input = storage
   },
@@ -30,10 +30,7 @@ export default {
 
 <template>
   <div class="grid grid-cols-6 space-x-4">
-    <form
-      class="flex items-center space-x-4 col-span-3"
-      @submit.prevent
-    >
+    <form class="flex items-center space-x-4 col-span-3" @submit.prevent>
       <label for="Storage" class="font-bold flex-shrink-0">
         LocalStorage:
       </label>
@@ -47,9 +44,7 @@ export default {
 
     <div class="col-span-3 flex items-center space-x-4">
       <pre class="pre flex-grow">{{ storage }}</pre>
-      <button class="btn" @click="copy()">
-        Copy
-      </button>
+      <button class="btn" @click="copy()">Copy</button>
     </div>
   </div>
 </template>

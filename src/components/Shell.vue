@@ -1,5 +1,5 @@
 <script setup>
-import { open } from '@tauri-apps/api/shell';
+import { open } from '@tauri-apps/api/shell'
 
 async function openUrl(openWith = null) {
   if (openWith !== null) {
@@ -7,14 +7,12 @@ async function openUrl(openWith = null) {
     return
   }
 
-  await open('https://tauri.app');
+  await open('https://tauri.app')
 }
 </script>
 
 <template>
-  <button class="btn" @click.prevent="openUrl()">
-    Open URL
-  </button>
+  <button class="btn" @click.prevent="openUrl()">Open URL</button>
   <button class="btn" @click.prevent="openUrl('firefox')">
     Open URL in FF
   </button>

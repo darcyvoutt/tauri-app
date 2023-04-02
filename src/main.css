@@ -40,6 +40,6 @@
 
   /* Inputs */
   .input {
-    @apply py-2.5 px-4 border-2 border-neutral-300 rounded-md;
+    @apply py-3 px-4 border-0 rounded-md;
   }
 }

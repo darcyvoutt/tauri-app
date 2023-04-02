@@ -30,14 +30,14 @@
       "fs": {
         "all": false,
         "copyFile": false,
-        "createDir": false,
+        "createDir": true,
         "exists": true,
         "readDir": false,
         "readFile": true,
-        "removeDir": true,
+        "removeDir": false,
         "removeFile": false,
         "renameFile": false,
-        "scope": [],
+        "scope": ["$APPDATA/*"],
         "writeFile": true
       },
       "http": {

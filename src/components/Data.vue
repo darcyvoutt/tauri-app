@@ -1,25 +1,25 @@
 <script>
-import { appDataDir } from '@tauri-apps/api/path'
+import { initData } from '../utils/data'
 
 export default {
   data() {
     return {
       input: null,
-    };
+      dataFile: 'No data found.',
+    }
   },
   mounted() {
-    this.appDirs()
-  },
-  methods: {
-    async appDirs() {
-      console.log('APP DATA:', await appDataDir())
-    }
+    initData()
   },
 }
 </script>
 
 <template>
-  <div>
-
+  <div class="flex items-center gap-4">
+    <form @submit.prevent>
+      <label for="dataInput"></label>
+      <input id="dataInput" class="input" v-model="input" />
+    </form>
+    <pre class="pre">{{ dataFile }}</pre>
   </div>
 </template>

@@ -15,7 +15,7 @@ tauri-build = { version = "1.2", features = [] }
 [dependencies]
 base64ct = "1.6.0"
 machine-uid = "0.2.0"
-tauri = { version = "1.2.4", features = ["app-all", "clipboard-write-text", "dialog-message", "fs-exists", "fs-read-file", "fs-remove-dir", "fs-write-file", "http-all", "notification-all", "path-all", "shell-open", "window-start-dragging"] }
+tauri = { version = "1.2.4", features = ["app-all", "clipboard-write-text", "dialog-message", "fs-create-dir", "fs-exists", "fs-read-file", "fs-write-file", "http-all", "notification-all", "path-all", "shell-open", "window-start-dragging"] }
 tokio = { version = "1.26.0", features = ["full"] }
 reqwest = { version = "0.11.15", features = ["json"] }
 sha2 = "0.10.6"

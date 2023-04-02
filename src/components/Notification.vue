@@ -1,5 +1,5 @@
 <script>
-import { writeText } from '@tauri-apps/api/clipboard';
+import { writeText } from '@tauri-apps/api/clipboard'
 import { notify } from '../utils/notify'
 
 export default {
@@ -13,21 +13,19 @@ export default {
       notify('This is a test notification')
       await writeText('Copied to clipboard with notification.')
     },
-  }
+  },
 }
 </script>
 
 <template>
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-x-4">
-      <button @click="notification" class="btn">
-        Send Notification
-      </button>
+      <button @click="notification" class="btn">Send Notification</button>
       <div class="italic">Only working when Alert type for MacOS</div>
     </div>
 
     <div class="flex items-center space-x-4 pl-8 border-l border-neutral-600">
-      <span>Increment Count: </span>
+      <span>Counter: </span>
       <pre class="pre">{{ counterValue }}</pre>
     </div>
   </div>
