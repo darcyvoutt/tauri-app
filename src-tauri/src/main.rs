@@ -35,12 +35,10 @@ fn hash_string() -> String {
 
     println!("the secret key might be: {secret:?}");
 
-    // Get other variables
+    // Use machine ID
     let machine: String = String::from(machine_id());
-    let customer: &str = "6831453175974";
-    let timestamp: &str = "2022-03-21T18:26:55.395Z";
 
-    let key: String = machine + "|" + customer + "|" + timestamp + "|" + secret;
+    let key: String = machine + "|" + secret;
     let mut hash = Sha256::new();
     hash.update(key);
     let hashed = hash.finalize();
