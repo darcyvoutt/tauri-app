@@ -27,12 +27,28 @@
         "open": false,
         "save": false
       },
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": false,
+        "exists": true,
+        "readDir": false,
+        "readFile": true,
+        "removeDir": true,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": [],
+        "writeFile": true
+      },
       "http": {
         "all": true,
         "request": true,
         "scope": ["https://m32m1.mocklab.io/*"]
       },
       "notification": {
+        "all": true
+      },
+      "path": {
         "all": true
       },
       "shell": {
@@ -53,7 +69,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.musicbydarcy.studioAssist",
+      "identifier": "com.morethancoding.TauriStarter",
       "targets": "all"
     },
     "security": {
