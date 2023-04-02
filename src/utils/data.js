@@ -10,13 +10,13 @@ import {
 const baseDir = BaseDirectory.AppData
 const dataDir = 'data'
 const dataFile = 'settings.json'
-const dataPath = `${dataDir}/${dataFile}`
+const filePath = `${dataDir}/${dataFile}`
 
 // Local Method
 const _createDataFile = async () => {
   try {
     await createDir(dataDir, { dir: baseDir, recursive: true })
-    await writeFile({ contents: '{}', path: dataPath }, { dir: baseDir })
+    await writeFile({ contents: '{}', path: filePath }, { dir: baseDir })
   } catch (e) {
     console.error(e)
   }
@@ -40,7 +40,7 @@ export const initData = async () => {
 
 export const getData = async () => {
   try {
-    const data = await readTextFile(dataPath, { dir: baseDir })
+    const data = await readTextFile(filePath, { dir: baseDir })
     return JSON.parse(data)
   } catch (e) {
     return null
@@ -48,5 +48,5 @@ export const getData = async () => {
 }
 
 export const saveData = async (data) => {
-  await writeFile({ contents: data, path: dataPath }, { dir: baseDir })
+  await writeFile({ contents: data, path: filePath }, { dir: baseDir })
 }

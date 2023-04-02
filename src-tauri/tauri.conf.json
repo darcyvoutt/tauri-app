@@ -28,15 +28,9 @@
         "save": false
       },
       "fs": {
-        "all": false,
-        "copyFile": false,
         "createDir": true,
-        "exists": true,
-        "readDir": false,
+        "readDir": true,
         "readFile": true,
-        "removeDir": false,
-        "removeFile": false,
-        "renameFile": false,
         "scope": ["$APPDATA/*"],
         "writeFile": true
       },
