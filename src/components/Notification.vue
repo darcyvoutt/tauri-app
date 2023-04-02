@@ -18,14 +18,16 @@ export default {
 </script>
 
 <template>
-  <div class="flex items-center gap-x-4">
-    <button @click="notification" class="btn">
-      Send Notification
-    </button>
-    <div class="italic">Only working when Alert type for MacOS</div>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-x-4">
+      <button @click="notification" class="btn">
+        Send Notification
+      </button>
+      <div class="italic">Only working when Alert type for MacOS</div>
+    </div>
 
-    <div class="flex items-center space-x-4 pl-4 border-l border-neutral-600">
-      <span>Count: </span>
+    <div class="flex items-center space-x-4 pl-8 border-l border-neutral-600">
+      <span>Increment Count: </span>
       <pre class="pre">{{ counterValue }}</pre>
     </div>
   </div>
