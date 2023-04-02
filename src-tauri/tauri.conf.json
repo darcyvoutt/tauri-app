@@ -31,7 +31,7 @@
         "createDir": true,
         "readDir": true,
         "readFile": true,
-        "scope": ["$APPDATA/*"],
+        "scope": ["$APPDATA/*", "$APPDATA/*/**"],
         "writeFile": true
       },
       "http": {
