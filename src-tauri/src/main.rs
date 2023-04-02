@@ -1,6 +1,19 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+// Get Env Variable
+use dotenv::dotenv;
+
+fn get_secret() -> String {
+    if cfg!(debug_assertions) {
+        dotenv().ok();
+        let secret_string = std::env::var("SECRET").expect("Environment variable not set.");
+        return secret_string;
+    } else {
+        return option_env!("SECRET").unwrap_or_default().to_owned();
+    }
+}
+
 // Machine ID
 use machine_uid;
 
@@ -11,25 +24,23 @@ fn machine_id() -> String {
 }
 
 // Hash Key validation
-use dotenv::dotenv;
 use sha2::{Digest, Sha256};
+use std::env;
 
 #[tauri::command]
 fn hash_string() -> String {
-    dotenv().ok();
-
     // Get Secret from ENV Variables
-    let secret: String = std::env::var("SECRET").expect("$SECRET is not set");
-    let secret_str: &str = &secret[..];
+    let secret_string = get_secret();
+    let secret: &str = &secret_string[..];
 
-    println!("{}", secret_str);
+    println!("the secret key might be: {secret:?}");
 
     // Get other variables
     let machine: String = String::from(machine_id());
     let customer: &str = "6831453175974";
     let timestamp: &str = "2022-03-21T18:26:55.395Z";
 
-    let key: String = machine + "|" + customer + "|" + timestamp + "|" + secret_str;
+    let key: String = machine + "|" + customer + "|" + timestamp + "|" + secret;
     let mut hash = Sha256::new();
     hash.update(key);
     let hashed = hash.finalize();
