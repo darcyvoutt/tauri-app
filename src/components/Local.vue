@@ -5,13 +5,16 @@ export default {
   data() {
     return {
       input: null,
-      storage: null,
+      storage: 'Storage is empty',
     }
   },
   watch: {
     input(input) {
       localStorage.setItem('storage', input)
       this.storage = input
+    },
+    storage(storage) {
+      if (storage.length === 0) this.storage = 'Storage is empty'
     },
   },
   mounted() {
