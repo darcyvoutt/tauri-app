@@ -59,7 +59,7 @@ export default {
 <template>
   <div class="flex items-center gap-4">
     <form class="flex items-center space-x-4" @submit.prevent>
-      <label for="customerId">Settings Data:</label>
+      <label for="customerId" class="font-bold">Settings Data:</label>
       <input
         id="customerId"
         class="input input-readonly"
