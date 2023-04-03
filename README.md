@@ -1,6 +1,6 @@
-# Tauri + Vue 3
+# Tauri Starter App
 
-This template should help get you started developing with Tauri + Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This template has been modified from the starting template given by Tauri. The purpose is to demonstrate multiple different functionalities at once to make it easier to create your desired application. This template uses Vue 3 for frontend development.
 
 ## Recommended IDE Setup
 
@@ -8,6 +8,7 @@ This template should help get you started developing with Tauri + Vue 3 in Vite.
 - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 - [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
 - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ## Installation Instructions
 

@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "Tauri App Starter",
+    "productName": "Tauri Starter App",
     "version": "0.1.0"
   },
   "tauri": {
