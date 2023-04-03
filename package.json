@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "tauri": "tauri",
     "tauri-build": "run-s tauri-build:*",
-    "tauri-build:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css",
+    "tauri-build:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css --minify",
     "tauri-build:vite": "vite build",
     "tauri-dev": "run-p tauri-dev:*",
     "tauri-dev:css": "yarn tailwindcss -i ./src/main.css -o ./dist/main.css --watch",
