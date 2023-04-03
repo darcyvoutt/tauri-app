@@ -31,7 +31,7 @@ export default {
     },
     randomize() {
       const num = Math.floor(Math.random() * 899999 + 100000)
-      this.customer_id = `c-${num}`
+      this.customer_id = `${num}`
     },
     async save(customer_id) {
       let initData = await getData()
