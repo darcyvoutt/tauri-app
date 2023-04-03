@@ -40,6 +40,10 @@
 
   /* Inputs */
   .input {
-    @apply py-3 px-4 border-0 rounded-md;
+    @apply py-3 px-4 border border-neutral-800 rounded-md;
+  }
+
+  .input-readonly {
+    @apply bg-neutral-300 !text-slate-500 border-neutral-500 cursor-not-allowed;
   }
 }

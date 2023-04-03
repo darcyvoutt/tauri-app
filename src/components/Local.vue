@@ -38,7 +38,7 @@ export default {
         id="LocalStorage"
         type="text"
         v-model="input"
-        class="input flex-shrink min-w-0"
+        class="input flex-grow min-w-0"
       />
     </form>
 

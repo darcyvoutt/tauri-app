@@ -28,17 +28,23 @@ use sha2::{Digest, Sha256};
 use std::env;
 
 #[tauri::command]
-fn hash_string() -> String {
+fn hash_string(customer_id: &str) -> String {
+    // Use machine ID
+    let machine: String = String::from(machine_id());
+
     // Get Secret from ENV Variables
     let secret_string = get_secret();
     let secret: &str = &secret_string[..];
 
     println!("the secret key might be: {secret:?}");
 
-    // Use machine ID
-    let machine: String = String::from(machine_id());
+    // Customer ID
+    let customer_id: String = String::from(customer_id);
+    let customer: &str = &customer_id[..];
 
-    let key: String = machine + "|" + secret;
+    println!("the input setting is: {customer:?}");
+
+    let key: String = machine + "|" + secret + "|" + customer;
     let mut hash = Sha256::new();
     hash.update(key);
     let hashed = hash.finalize();

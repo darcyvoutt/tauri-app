@@ -33,7 +33,7 @@ const _findDataFile = async () => {
 }
 
 // Export Functions
-export const initDataCheck = async () => {
+export const initData = async () => {
   const hasDataFolder = await _findDataFile()
   if (!hasDataFolder) await _createDataFile()
 }
@@ -47,10 +47,18 @@ export const getData = async () => {
   }
 }
 
-export const saveData = async (data) => {
-  if (typeof data !== 'object' || data === null) return false
+export const resetData = async () => {
+  try {
+    await writeTextFile({ contents: '{}', path: filePath }, { dir: baseDir })
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export const saveData = async (obj) => {
+  if (typeof obj !== 'object' || obj === null) return
   await writeTextFile(
-    { contents: JSON.stringify(data), path: filePath },
+    { contents: JSON.stringify(obj), path: filePath },
     { dir: baseDir }
   )
   return true

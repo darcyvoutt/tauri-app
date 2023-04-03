@@ -1,36 +1,56 @@
 <script>
-import { initDataCheck, getData, saveData } from '../utils/data'
+import { initData, getData, saveData, resetData } from '../utils/data'
+import { invoke } from '@tauri-apps/api/tauri'
 
 export default {
   data() {
     return {
-      dataFile: 'No data found.',
-      input: null,
+      data: null,
+      customer_id: '',
     }
   },
   watch: {
-    input() {
-      this.saveData()
+    customer_id(customer_id) {
+      this.save(customer_id)
     },
   },
   mounted() {
-    initDataCheck()
-    this.updateData()
-    this.updateInput()
+    this.init()
   },
   methods: {
-    async saveData() {
-      const initData = await getData()
-      const updatedData = Object.assign(initData, { input: this.input })
-      await saveData(updatedData)
-      this.updateData()
-    },
-    async updateData() {
-      this.dataFile = await getData()
-    },
-    async updateInput() {
+    async init() {
+      initData()
+
       const data = await getData()
-      this.input = data.input
+
+      if (data === null || Object.keys(data).length === 0) return
+      if (data.customer_id !== undefined) this.customer_id = data.customer_id
+      else this.randomize()
+
+      this.data = data
+    },
+    randomize() {
+      const num = Math.floor(Math.random() * 899999 + 100000)
+      this.customer_id = `c-${num}`
+    },
+    async save(customer_id) {
+      let initData = await getData()
+
+      if (initData === null) {
+        await resetData()
+        initData = await getData()
+      }
+
+      const updatedData = Object.assign(initData, { customer_id })
+
+      this.$store.commit('saveSettings', updatedData)
+      this.data = updatedData
+      this.customer_id = customer_id
+
+      await saveData(updatedData)
+
+      const license = await invoke('hash_string', { customerId: customer_id })
+      this.$store.commit('saveLicense', license)
     },
   },
 }
@@ -38,14 +58,16 @@ export default {
 
 <template>
   <div class="flex items-center gap-4">
-    <form
-      class="flex items-center space-x-4"
-      :class="loading ? 'animate-pulse' : ''"
-      @submit.prevent
-    >
-      <label for="dataInput">Settings Data:</label>
-      <input id="dataInput" class="input" v-model="input" />
+    <form class="flex items-center space-x-4" @submit.prevent>
+      <label for="customerId">Settings Data:</label>
+      <input
+        id="customerId"
+        class="input input-readonly"
+        v-model="customer_id"
+        readonly
+      />
     </form>
-    <pre class="pre flex-grow">{{ dataFile }}</pre>
+    <button class="btn" @click.prevent="randomize()">Update</button>
+    <pre class="pre flex-grow">{{ data }}</pre>
   </div>
 </template>
