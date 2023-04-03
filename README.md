@@ -15,8 +15,8 @@ All that you will need to do is run `yarn install` to setup the project.
 
 ## Development
 
-Simply run `yarn dev` to run the development mode which will startup `Tailwind`, `Vite` and `Tauri`.
+Simply run `yarn dev` to run the development mode which will startup Tailwind, Vite and Tauri.
 
 ## Build
 
-The starter script is `yarn build` which will compile `Tailwind` and build `Tauri`. However, if on an ARM Mac, you can run `yarn build-intel` to build for Intel based Macs specifically.
+The starter script is `yarn build` which will compile Tailwind and build Tauri. However, if on an ARM Mac, you can run `yarn build-intel` to build for Intel based Macs specifically.
