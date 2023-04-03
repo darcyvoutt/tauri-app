@@ -48,8 +48,10 @@ export const getData = async () => {
 }
 
 export const saveData = async (data) => {
+  if (typeof data !== 'object' || data === null) return false
   await writeTextFile(
     { contents: JSON.stringify(data), path: filePath },
     { dir: baseDir }
   )
+  return true
 }
