@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "yarn tauri build",
-    "build-intel": "run-s tauri-build:css build-target-intel",
-    "build-target-intel": "yarn tauri build --target x86_64-apple-darwin",
+    "build-intel": "yarn tauri build --target x86_64-apple-darwin",
     "dev": "yarn tauri dev",
     "preview": "vite preview",
     "tauri": "tauri",
