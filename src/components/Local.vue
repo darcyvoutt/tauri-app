@@ -10,7 +10,7 @@ export default {
   },
   watch: {
     input(input) {
-      localStorage.setItem('storage', input)
+      window.localStorage.setItem('storage', input)
       this.storage = input
     },
     storage(storage) {
@@ -18,14 +18,18 @@ export default {
     },
   },
   mounted() {
-    const storage = localStorage.getItem('storage')
-    this.storage = storage
-    this.input = storage
+    this.init()
   },
   methods: {
     async copy() {
       await writeText(this.storage)
       alert('Local storage copied to clipboard')
+    },
+    init() {
+      const storage = localStorage.getItem('storage')
+      if (storage === null) return
+      this.storage = storage
+      this.input = storage
     },
   },
 }
