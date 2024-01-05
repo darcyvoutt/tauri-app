@@ -48,9 +48,6 @@ export default {
       this.customer_id = customer_id
 
       await saveData(updatedData)
-
-      const license = await invoke('hash_string', { customerId: customer_id })
-      this.$store.commit('saveLicense', license)
     },
   },
 }
